@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/lab03.html">Home</a></li>
+        <li><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/grid.html">Grid</a></li>
+        <li><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/form.html">Form</a></li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/lab03.html">Home</a></p>
+      <p><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/grid.html">Grid</a></p>
+      <p><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/form.html">Form</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+      <h1>Welcome</h1>
+      <p><b>basic of PHP การสร้าง form รับข้อมูล</b></font><p><a href='#' class=blur_line>คุณต้องเข้าสู่ระบบก่อนถึงจะดาวโหลดไฟล์ได้</a><p><font color="#000000"><b>การสร้างฟอร์มรับข้อมูล</b><br />
+<b>รูปแบบการกำหนดคุณสมบัติให้แท็ก < form></b><br />
+<font color="#FF0000">< form <font color="#000099">name="ชื่อฟอร์ม" method="วิธีส่งข้อมูล" <br />
+action="ชื่อไฟล์สคริปต์ที่จะเรียกขึ้นมาใช้งาน"</font>></font><br><br />
+สำหรับวิธีส่งข้อมูลมี 2 รูปแบบคือ POST กับ GET ซึ่งแตกต่างกัน โดยใช้งานกันตามความเหมาะสม<br />
+โดยที่ความแตกต่างระหว่าง POST กับ GET คือ<br />
+<li> <b>POST</b> เป็นการส่งข้อมูลจากฟอร์มไปยังสคริปต์โดยตรง โดยไม่ผ่าน URL ทำให้เราไม่<br />
+สามารถมองเห็น ข้อมูลดังกล่าวได้ด้วยวิธีปกติ แบบนี้จึงเหมาะกับข้อมูลขนาดใหญ่ๆ หรือข้อมูลที่ต้อง-<br />
+การปิดเป็นความลับ เช่นหน้าจอล็อกอิน<br />
+<li> <b>POST</b> เป็นการส่งข้อมูลจากฟอร์มผ่านทาง URL ของเว็บเพจโดยตรง วิธีนี้ไม่ปลอดภัย- <br />
+เพราะข้อมูลที่ส่งผ่านไปให้สคริปต์นั้น จะถูกแสดงออกมาในรูปแบบของข้อความธรรมดา ใน URL ซึ่งเรา<br />
+จะเห็นในช่อง Address Bar ของบราวเซอร์<br><br />
+<font color="#FF9900"><b>องค์ประกอบต่างๆ ของฟอร์มรับข้อมูล</b></font><br />
+<font color="#000099"><b>การใช้กล่องรับข้อความ (TextField)</b></font><br />
+<font color="#006600"><b>กล่องรับข้อความบรรทัดเดียว (Single line TextField)</b></font><br />
+กล่องรับข้อความบรรทัดเดียวจะใช้กรอกข้อความสั้นๆ เช่นชื่อ, นามสกุล, เบอร์โทรศัพท์, หรืออีเมล์<br />
+เป็นต้น<br />
+<b>รูปแบบการเขียนสคริปต์ผ่านแท็ก < input> ในภาษา html โดยกำหนดคุณสมบัติดังนี้</b><br />
+<font color="#FF0000">< input type=<font color="#000099">"text"</font> name=<font color="#000099">"ชื่อกล่องข้อความ"</font> <br />
+size=<font color="#000099">"ความกว้างกล่องรับข้อความ"</font><br />
+maxlength=<font color="#000099">"จำนวนตัวอักษรสูงสุด"</font>>;</font><br><br />
+<font color="#006600"><b>กล่องรับรหัสผ่าน (PasswordField)</b></font><br />
+กล่องรับรหัสผ่านจะรับข้อมูลเป็นรหัสผ่านโดยเฉพาะ เนื่องจากผู้ใช้กรอกข้อมูลลงในกล่องรับรหัสผ่านจะปรากฏเป็น<br />
+เครื่องหมายดอกจัน (*) แทนตัวอักษรแต่ละตัวในรหัสผ่าน<br />
+<b>รูปแบบการเขียนสคริปต์ผ่านแท็ก < input> ในภาษา html โดยกำหนดคุณสมบัติดังนี้</b><br />
+<font color="#FF0000">< input type=<font color="#000099">"password"</font> name=<font color="#000099">"ชื่อกล่องข้อความ"</font> <br />
+size=<font color="#000099">"ความกว้างกล่องรับข้อความ"</font><br />
+maxlength=<font color="#000099">"จำนวนตัวอักษรสูงสุด"</font>>;</font><br><br />
+<font color="#006600"><b>กล่องรับข้อความหลายบรรทัด (TextArea)</b></font><br />
+กล่องรับข้อความหลายบรรทัดเหมาะสำหรับเป็นกล่องรับข้อความยาวๆ เช่น กล่องรับที่อยู่ หรือกล่องรับความ<br />
+คิดเห็น เป็นต้น<br />
+<b>รูปแบบการเขียนสคริปต์ผ่านแท็ก < textarea> ในภาษา html โดยกำหนดคุณสมบัติดังนี้</b><br />
+<font color="#FF0000">< textarea <font color="#000099">name="ชื่อกล่องข้อความ" cols="จำนวนของตัวอักษรใน 1 บรรทัด" rows="จำนวนบรรทัด"</font>><br />
+< /textarea></font><br><br />
+<font color="#000099"><b>การใช้ปุ่มตัวเลิอก</b></font><br />
+การสร้างข้อมูลเป็นแบบปุ่มตัวเลือกซึ่งมีอยู่ 2 ประเภทหลักด้วยกันคือ<br />
+<li> ปุ่มตัวเลือกแบบปุ่มกลม (Radio)<br />
+<li> ปุ่มตัวเลือกแบบปุ่มเหลี่ยม (Checkbox)<br><br />
+<font color="#006600"><b>ปุ่มตัวเลิอก Radio</b></font><br />
+ลักษณะของ ปุ่มตัวเลือกแบบ Radio คือ ใน 1 ชุดคำถามผู้ใช้สามารถเลือกคำตอบได้เพียงแค่ 1 คำตอบเท่านั้น เช่นข้อ<br />
+มูลประเภท เพศ, ศาสนา หรือข้อสอบที่เลือกตอบได้เพียงคำตอบเดียวเท่านั้น<br />
+<b>รูปแบบการเขียนสคริปต์ผ่านแท็ก < input> ในภาษา html โดยกำหนดคุณสมบัติดังนี้</b><br />
+<font color="#FF0000">< input <font color="#000099">type="radio" name="ชื่อของกลุ่มตัวเลือก" value="ค่าของตัวเลือก"</font>/><br />
+< lable><font color="#000000"><b>ข้อความที่ต้องการให้แสดงหน้าปุ่ม</b></font>< /lable></font><br><br />
+<font color="#006600"><b>ปุ่มตัวเลิอก CheckBox</b></font><br />
+ลักษณะของปุ่ม Checkbox คือสามารถเลือกได้มากกว่า 1 ตัวเลือก เช่น เลือกเกี่ยวกับความชอบ หรือเลือกข้อสอบที่ให้เลือก<br />
+ตอบมากกว่า 1 ข้อ เป็นต้น<br />
+<b>รูปแบบการเขียนสคริปต์ผ่านแท็ก < input> ในภาษา html โดยกำหนดคุณสมบัติดังนี้</b><br />
+<font color="#FF0000">< input <font color="#000099">type="checkbox" name="ชื่อของกลุ่มตัวเลือก" value="ค่าของตัวเลือก"</font> /></font><br />
+<font color="#000000"><b>ข้อความประกอบ</b></font><br><br />
+<font color="#000099"><b>การใช้กล่องตัวเลือกแบบป็อบอัพเมนู</b></font><br />
+เป็นกล่องตัวเลือกแบบแสดงรายการขึ้นมาให้เห็นเพียงรายการเดียว เมื่อคลิกที่ลูกศร เมนูรายการอื่นๆ จึงจะปรากฏขึ้นมาให้<br />
+คุณเลือก<br />
+<b>รูปแบบการเขียนสคริปต์ผ่านแท็ก < select> ในภาษา html โดยกำหนดคุณสมบัติดังนี้</b><br />
+<font color="#FF0000">< select <font color="#000099">name="ชื่อกล่องตัวเลือก"</font>><br />
+ < option <font color="#000099">value="ค่าของตัวเลือกที่ 1" selected="select"</font>><font color="#000000"><b>ชื่อตัวเลือกที่ 1</b></font>< /option><br />
+ < option <font color="#000099">value="ค่าของตัวเลือกที่ 2"</font>><font color="#000000"><b>ชื่อตัวเลือกที่ 2</b></font>< /option><br />
+ < option <font color="#000099">value="ค่าของตัวเลือกที่ n"</font>><font color="#000000"><b>ชื่อตัวเลือกที่ n</b></font>< /option><br />
+< /select></font><br><br />
+<font color="#000099"><b>การใช้ปุ่มสั่งงาน</b></font><br />
+ปุ่มสั่งงานมี 3 ประเภท ได้แก่ ปุ่มส่งข้อมูล, ปุ่มล้างข้อมูล, ปุ่มสั่งงานแบบรูปภาพ<br><br />
+<font color="#006600"><b>ปุ่มส่งข้อมูล (Submit)</b></font><br />
+ปุ่มส่งข้อมูล ทำหน้าหน้าที่ส่งข้อมูลที่ผู้ใช้กรอกไปประมวลผลต่อยังสคริปต์ที่ต้องการ<br />
+<b>รูปแบบการเขียนสคริปต์ผ่านแท็ก < input> ในภาษา html โดยกำหนดคุณสมบัติดังนี้</b><br />
+<font color="FF0000">< input <font color="#000099">type="submit" name="ชื่อปุ่ม" value="ข้อความหน้าปุ่ม"</font>/></font><br><br />
+<font color="#006600"><b>ปุ่มล้างข้อมูล (Reset)</b></font><br />
+ปุ่มล้างข้อมูล ทำหน้าที่ลบข้อมูลทั้งหมดที่กรอกเข้ามาในฟอร์มขณะนั้นออกไป เหมือนกับการเคลียร์ค่าทั้งหมด<br />
+เพื่อกรอกใหม่นั่นเอง<br />
+<b>รูปแบบการเขียนสคริปต์ผ่านแท็ก < input> ในภาษา html โดยกำหนดคุณสมบัติดังนี้</b><br />
+<font color="FF0000">< input <font color="#000099">type="reset" name="ชื่อปุ่ม" value="ข้อความหน้าปุ่ม"</font>/></font><br><br />
+<font color="#006600"><b>ปุ่มรูปภาพสำหรับส่งข้อมูล (ImageField)</b></font><br />
+<b>รูปแบบการเขียนสคริปต์ผ่านแท็ก < input> ในภาษา html โดยกำหนดคุณสมบัติดังนี้</b><br />
+<font color="FF0000">< input <font color="#000099">type="image" name="ชื่อปุ่ม" src="ชื่อไฟล์รูปภาพ"</font>/></font><br><br />
+<b>ตัวอย่างการสร้างฟอร์ม</b></font><br />
+<b>สคริปต์ form_register.php</b><br />
+<font color="#000099">< html><br />
+< head><br />
+< title>ฟอร์มรับข้อมูล< /title><br />
+< /head><br />
+< body><br />
+< form name="form1" method="post" action="register.php"><br />
+  < table width="421" border="1"><br />
+    < tr><br />
+      < td width="106">ชื่อผู้ใช้< /td><br />
+      < td width="299">< input name="username" type="text" size="40" maxlength="40" />< /td><br />
+    < /tr><br />
+    < tr><br />
+      < td height="26">รหัสผ่าน< /td><br />
+      < td>< input name="password" type="password" size="40" maxlength="10" />< /td><br />
+    < /tr><br />
+    < tr><br />
+      < td>เพศ< /td><br />
+      < td>< p><br />
+        < label><br />
+          < input type="radio" name="gender" value="ชาย" /><br />
+          ชาย< /label><br />
+        < input type="radio" name="gender" value="หญิง" /><br />
+        < label>หญิง< /label><br />
+        < br /><br />
+        < label>< /label><br />
+        < br /><br />
+      < /p>< /td><br />
+    < /tr><br />
+    < tr><br />
+      < td>อายุ< /td><br />
+      < td>< select name="age"><br />
+        < option value="5-10" selected="selected">5-10 ปี< /option><br />
+        < option value="11-15">11-15 ปี< /option><br />
+        < option value="16-20">16-20 ปี< /option><br />
+        < option value="21-25">21-25 ปี< /option><br />
+        < option value="26-30">26-30 ปี< /option><br />
+      < /select>< /td><br />
+    < /tr><br />
+    < tr><br />
+      < td valign="top">ที่อยู่< /td><br />
+      < td>< textarea name="address" cols="40" rows="5" >< /textarea>< /td><br />
+    < /tr><br />
+    < tr><br />
+      < td valign="top">กีฬาที่ชอบ< /td><br />
+      < td>< input type="checkbox" name="sport1" value="ว่ายน้ำ" /><br />
+ว่ายน้ำ < br /><br />
+< input type="checkbox" name="sport2" value="ฟุตบอล" /><br />
+ฟุตบอล<br /><br />
+< input type="checkbox" name="sport3" value="วิ่ง" /><br />
+วื่ง< /td><br />
+    < /tr><br />
+    < tr><br />
+      < td>&nbsp;< /td><br />
+      < td>< input type="submit" name="Submit" value="ตกลง" /> <br />
+  < input type="reset" name="Submit2" value="เคลียร์" />< /td><br />
+    < /tr><br />
+  < /table><br />
+< /form><br />
+< /body><br />
+< /html></font><br><br />
+(ใช้ตาราง < table> เพื่อจัดรูปแบบให้ดูดีนะครับ)<p><img src='http://kondontea.orgfree.com/e_photo/form1.gif'><p><br><font color="#000000">จากนั้นสร้างสคริปต์รับข้อมูลจากฟอร์ม<br />
+เริ่มต้นด้วยการประกาศตัวแปรเพื่อรับค่าจากฟอร์ม เช่น $username=<b>$_POST</b>['username'];  username<br />
+ที่อยู่ในวงเล็บ $_POST นั้นคือชื่อของกล่องรับข้อมูลที่อยู่ในฟอร์ม < input <b>name="username"</b> type="text><br />
+ นั่นเอง ชื่อตัวแปรนั้นไม่จำเป็นต้องเหมือนกับชื่อที่ส่งมาจากฟอร์มก็ได้ ตั้งให้เข้าใจว่าเป็นตัวไหนก็พอ<br />
+จากนั้นทำการแสดงผลด้วยคำสั่ง echo</font><br />
+สคริปต์ register.php<br />
+<title>ข้อมูลของคุณ</title><br />
+< ?php<br />
+<font color="#FF6600">//----------ประกาศตัวรับค่าที่ส่งมาจาก-form-1----------------</font><br />
+<font color="#000000">$username</font> <font color="#000099">= $_POST</font>['username'];<br />
+<font color="#000000">$passwd</font> <font color="#000099">= $_POST</font>['password'];<br />
+<font color="#000000">$gender</font> <font color="#000099">= $_POST</font>['gender'];<br />
+<font color="#000000">$age</font> <font color="#000099">= $_POST</font>['age'];<br />
+<font color="#000000">$address</font> <font color="#000099">= $_POST</font>['address'];<br />
+<font color="#000000">$sport1</font> <font color="#000099">= $_POST</font>['sport1'];<br />
+<font color="#000000">$sport2</font> <font color="#000099">= $_POST</font>['sport2'];<br />
+<font color="#000000">$sport3</font> <font color="#000099">= $_POST</font>['sport3'];<br />
+<font color="#FF6600">//---------แสดงผลค่าที่ผู้ใช้กรอกเข้ามา--------------------------</font><br />
+<font color="#000099">echo</font> "UserName ของคุณคือ " <font color="#000000">.$username.</font> "< br>";<br />
+<font color="#000099">echo</font> "เพศ : " <font color="#000000">.$gender.</font> "< br>";<br />
+<font color="#000099">echo</font> "อายุ : " <font color="#000000">.$age.</font> "< br>";<br />
+<font color="#000099">echo</font> "ที่อยู่ : " <font color="#000000">.$address.</font> "< br>";<br />
+<font color="#000099">echo</font> "กีฬาที่ชอบ : " <font color="#000000">.$sport1</font>;<br />
+<font color="#000099">echo</font> " ," <font color="#000000">.$sport2</font>;<br />
+<font color="#000099">echo</font> " ," <font color="#000000">.$sport3.</font> "< br>";<br />
+?><p><img src='http://kondontea.orgfree.com/e_photo/form2.gif'><p></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><span class="style5">
+
+              </p>
+
+              <p>ที่มา : <a href="http://kondontea.orgfree.com/e_answer.php?e_id=47">http://kondontea.orgfree.com/e_answer.php?e_id=47</a></p>
+      <hr>
+      
+    </div>
+
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Warintorn Yangkijkarn</p>
+</footer>
+
+</body>
+</html>

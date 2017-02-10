@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/lab03.html">Home</a></li>
+        <li><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/grid.html">Grid</a></li>
+        <li><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/form.html">Form</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/lab03.html">Home</a></p>
+      <p><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/grid.html">Grid</a></p>
+      <p><a href="http://angsila.cs.buu.ac.th/~58660138/887371/lab03/form.html">Form</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+      <h1>Welcome</h1>
+      <p><h1 class="entry-title" itemprop="name">รู้จัก Bootstrap Layout &#8211; Grid</h1>
+<div class="entry-content" itemprop="articleBody">
+<h3>Bootstrap เพื่อนรัก &#8211; Grid</h3>
+<p><span class="dropcap">จ</span>ริงๆ แล้วถ้าให้พูดถึง <strong>Bootstrap</strong> ก็คงจะขาดเรื่องของ Layout หรือ Grid System ไปไม่ได้เลย ในความเป็นจริงเรื่องนี้ควรที่จะทำความเข้าใจก่อนใช้งาน <strong>Bootstrap</strong> เสียด้วยซ้ำ บทความนี้จะพูดถึงเรื่องของ Grid System และ Box model ของ CSS ด้วย ซึ่งจะทำให้ผู้อ่านเข้าใจ และ ปรับนำมาใช้กับงานได้อย่างง่ายขึ้น ทั้งนี้เองผู้เขียนแนะนำให้เปิดคู่มือของ <strong>Bootstrap</strong> ดูควบคู่ไปด้วยเช่นกันที่ <a title="Grid System" href="http://getbootstrap.com/css/#grid" target="_blank">http://getbootstrap.com/css/#grid</a> บทความนี้เราจะพูดถึง Grid System ของ <strong>Bootstrap</strong> เวอร์ชั่น 3 ซึ่งจะแตกต่างกับเวอร์ชั่น 2 อยู่พอสมควร ถ้าจะถามผู้เขียนว่าทั้งสองเวอร์ชั่นมีความแตกต่างกันเยอะหรือเปล่า ผู้เขียนก็คงจะตอบว่าเวอร์ชั่น 3 นั้นถูกออกแบบมาได้ดีกว่า ยืดหยุ่นกว่า สามารถใช้งานกับอุปกรณ์ได้อย่างหลากหลาย และ ควบคุมการแสดงผลได้ง่ายกว่า ผู้เขียนจึงแนะนำให้ใช้ของใหม่แทนของเก่า คำถามหลักต่อไปคือ</p>
+<h4>Grid System คืออะไร ?</h4>
+<p>ถ้าพูดกันแบบบ้านๆ ทั่วไปเราก็คงจะบอกว่าเป็น Layout ที่คอยควบคุมวัตถุต่างๆ บนหน้าเว็บไซต์ให้แสดงผลได้อย่างถูกต้องตามหลัก box layout ซึ่งจะส่งผลดีต่อการเขียนหนึ่งหน้าเว็บไซต์ แต่สามารถใช้ร่วมกับอุปกรณ์ทุกขนาดหน้าจอ Grid system ของ <strong>Bootstrap</strong> เอง แบ่งออกเป็น 12 คอลัมน์ ถ้าให้เห็นภาพง่ายขึ้นก็น่าจะต้องบอกว่า เหมือนกับตาราง 1 แถว มี 12 คอลัมน์ประมาณนั้น ดังภาพด้านล่าง</p>
+<figure id="attachment_3930" style="width: 895px" class="wp-caption alignnone"><img class="size-full wp-image-3930" src="http://www.jir4yu.me/wp-content/uploads/2014/04/Screen-Shot-2557-04-14-at-11.08.33.png" alt="Bootstrap Grid System" width="895" height="69" srcset="https://www.jir4yu.me/wp-content/uploads/2014/04/Screen-Shot-2557-04-14-at-11.08.33.png 895w, https://www.jir4yu.me/wp-content/uploads/2014/04/Screen-Shot-2557-04-14-at-11.08.33-600x46.png 600w" sizes="(max-width: 895px) 100vw, 895px" /><figcaption class="wp-caption-text">รูปภาพจาก Bootstrap &#8211; แสดงให้เห็นว่า 1 row = 12 cols</figcaption></figure>
+<p>ซึ่งหน่วยที่เป็น 12 นี้ เราสามารถเฉลี่ยแต่ละส่วนได้ตามความต้องการ อย่างเช่น</p>
+<figure id="attachment_3931" style="width: 898px" class="wp-caption alignnone"><img class="size-full wp-image-3931" src="http://www.jir4yu.me/wp-content/uploads/2014/04/Screen-Shot-2557-04-14-at-11.10.55.png" alt="Bootstrap Grid System" width="898" height="173" srcset="https://www.jir4yu.me/wp-content/uploads/2014/04/Screen-Shot-2557-04-14-at-11.10.55.png 898w, https://www.jir4yu.me/wp-content/uploads/2014/04/Screen-Shot-2557-04-14-at-11.10.55-600x116.png 600w" sizes="(max-width: 898px) 100vw, 898px" /><figcaption class="wp-caption-text">รูปตัวอย่างการเฉลี่ยแต่ละส่วนให้ไม่เกิน 12 cols</figcaption></figure>
+<p>ผู้อ่านน่าจะพอเห็นภาพกันบ้างแล้ว ซึ่งเวลาเขียนโค้ดนี้เอง เราจะต้องเริ่มต้นด้วย class ที่ชื่อว่า &#8220;<em>row</em>&#8221; และสร้าง element ภายในด้วย prefix class เริ่มต้นว่า &#8220;<em>col-หน่วยหน้าจอ-เลขคอลัมน์</em>&#8221; สิ่งที่เราต้องระบุเพิ่มเติมลงไปก็มี 2 ค่าด้วยกันคือ หน่วยหน้าจอ และ เลขคอลัมน์</p>
+<pre class="html">&lt;div class="row"&gt;
+    &lt;div class="col-sm-6"&gt; Columns A &lt;/div&gt;
+    &lt;div class="col-sm-6"&gt; Columns B &lt;/div&gt;
+&lt;/div&gt;</pre>
+<h4>หน่วยหน้าจอ &#8211; เลขคอลัมน์ ต้องระบุอะไร ?</h4>
+<p>หน่วยหน้าจอใน <strong>Bootstrap</strong> เวอร์ชั่นใหม่นี้มีทั้งหมด 4 แบบให้เลือกเรียกใช้ได้ตามสะดวก ซึ่งแต่ละหน่วยก็ควบคุมการแสดงผลตามขนาดหน้าจอ(หน่วยเป็น pixel) ตามที่ Bootstrap กำหนดไว้ในตอนแรก ซึ่งดูได้จากรูปภาพของเว็บไซต์ <strong>Bootstrap</strong> เอง หรือภาพด้านล่างนี้</p>
+<figure id="attachment_3934" style="width: 857px" class="wp-caption alignnone"><img class="size-full wp-image-3934" src="http://www.jir4yu.me/wp-content/uploads/2014/04/Screen-Shot-2557-04-14-at-11.21.22.png" alt="Grid Option - Bootstrap" width="857" height="225" srcset="https://www.jir4yu.me/wp-content/uploads/2014/04/Screen-Shot-2557-04-14-at-11.21.22.png 857w, https://www.jir4yu.me/wp-content/uploads/2014/04/Screen-Shot-2557-04-14-at-11.21.22-600x158.png 600w" sizes="(max-width: 857px) 100vw, 857px" /><figcaption class="wp-caption-text">แสดงข้อมูลการเรียกใช้ในแต่ละหน่วยหน้าจอ</figcaption></figure>
+<p><span style="text-decoration: underline;">สรุปจากภาพด้านบนง่ายๆดังนี้</span></p>
+<ul>
+<li><span style="color: #808000;">XS</span> :: ใช้กับหน้าจอขนาดเล็กกว่า Ipad แนวตั้งลงมา (หน้าจอสมาร์ทโฟนต่างๆ)</li>
+<li><span style="color: #ff00ff;">SM</span> :: ขนาดหน้าจอตั้งแต่ Ipad แนวตั้ง</li>
+<li><span style="color: #ff6600;">MD</span> :: ขนาดความกว้างต่ำสุดที่หน้าจอ Ipad แนวนอน</li>
+<li><span style="color: #0000ff;">LG</span> :: หน้าจอที่กว้างกว่า 1200 pixels ขึ้นไป หรือให้เหมาะสมกับขนาดหน้าจอโน้ตบุคมาตราฐาน</li>
+</ul>
+<p>ส่วนหน่วยคอลัมน์นั้น เราสามารถระบุได้ตามใจชอบว่าจะใช้เท่าไหร่ก็ได้ตั้งแต่ 1-12 หรือ เฉลี่ยแต่ละวัตถุให้อยู่ในแถวเดียวกันโดยรวมแล้วไม่เกิน 12 หน่วย ซึ่งเวลาเขียนโค้ดเราสามารถกำหนดหน่วยหน้าจอในขนาดต่างๆ ให้แตกต่างกันออกไปตามการแสดงผลได้ด้วย ยกตัวอย่างเช่น</p>
+<pre class="html">&lt;div class="row"&gt;
+    &lt;div class="col-xs-6 col-sm-4 col-md-5 col-lg-7"&gt;Column A&lt;/div&gt;
+    &lt;div class="col-xs-6 col-sm-8 col-md-7 col-lg-5"&gt;Column B&lt;/div&gt;
+&lt;/div&gt;</pre>
+<p>ซึ่งบางครั้งเราอาจจะไม่ต้องกำหนดหน่วยหน้าจอ</p>
+<pre class="html">&lt;div class="row"&gt;
+    &lt;div class="col-md-9 col-lg-7"&gt;Column A&lt;/div&gt;
+    &lt;div class="col-md-3 col-lg-5"&gt;Column B&lt;/div&gt;
+&lt;/div&gt;</pre>
+<p>ถ้าเป็นอย่างในตัวอย่างด้านบน <strong>Bootstrap</strong> จะแสดงผลเป็น 2 คอลัมน์คือ A อยู่ทางด้านซ้ายที่ความกว้าง 9 คอลัมน์ และ คอลัมน์ B อยู่ด้านขวาที่ความกว้าง 3 คอลัมน์(สำหรับขนาดหน้าจอ iPad แนวนอน) ในทิศทางเดียวกันเมื่อผู้ใช้ไปเปิดเว็บไซต์ในหน้าจอที่กว้างกว่า 1200px หรือหน้าจอโน้ตบุคมาตราฐาน(1366&#215;768) ก็จะได้คอลัมน์ A ที่มีความกว้างเหลือ 7 คอลัมน์, คอลัมน์ B กว้างขึ้นเป็น 5 คอลัมน์ <span style="text-decoration: underline;">ส่วนขนาดหน้าจอที่ไม่ได้กำหนดคือตั้งแต่ SM และ XS จะใช้ความกว้าง 12 คอลัมน์ไปโดยปริยาย</span></p>
+<h4>ครอบด้วย Container</h4>
+<p>ที่ผ่านมาผู้อ่านใช้ row ในการครอบ col ต่างๆ แต่พอหากเรานำไปใช้ในการเขียนเว็บไซต์จริงๆ แล้ว จะเห็นว่าความกว้างนั้นไม่ได้ถูกกำหนดเอาไว้ ซึ่งไม่เป็นผลดีหากผู้ใช้นำไปเปิดในอุปกรณ์ที่มีหน้าจอขนาดกว้าง เราจึงต้องครอบเหนือจาก row ด้วย class ที่ชื่อว่า <em>container</em> ดังตัวอย่าง</p>
+<pre class="html">&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-9 col-lg-7"&gt;Column A&lt;/div&gt;
+        &lt;div class="col-md-3 col-lg-5"&gt;Column B&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+<p>ซึ่งข้อดีของ <em>container</em> เองคือช่วยควบคุมการแสดงผลระหว่างอุปกรณ์ได้โดยที่เราไม่จำเป็นต้องสร้าง class อื่นมาคอยจัดการวัตถุข้างในเอง เพราะ <em>container</em> นั้นถูกเขียนมาให้ยืดหยุ่นกับขนาดหน้าจอแต่ละแบบอยู่แล้ว</p>
+
+
+
+<br>
+<p>ที่มา : <a href="https://www.jir4yu.me/2014/%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%88%E0%B8%B1%E0%B8%81-bootstrap-layout-grid/">https://www.jir4yu.me/2014/%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%88%E0%B8%B1%E0%B8%81-bootstrap-layout-grid/</a></p>
+</div>
+</div>    </article>
+</div>
+
+
+   
+   
+      
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Warintorn Yangkijkarn</p>
+</footer>
+
+</body>
+</html>
